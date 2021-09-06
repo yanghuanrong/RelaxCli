@@ -14,6 +14,14 @@ program
     require('../lib/create')(name);
   });
 
+// 运行项目
+program
+  .command('serve')
+  .description('运行项目')
+  .action(() => {
+    require('../lib/dev')();
+  });
+
 // 输入错误给出提示
 program.on('command:*', ([cmd]) => {
   program.outputHelp();
