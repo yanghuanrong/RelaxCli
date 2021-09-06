@@ -4,7 +4,7 @@
 
 ## 资料参考
 
-[nodejs 交互工具库]('https://segmentfault.com/a/1190000037688124')
+[nodejs 交互工具库](https://segmentfault.com/a/1190000037688124)
 
 [vue-cli 命令行定义](https://blog.csdn.net/qq_34086980/article/details/113717890)
 
