@@ -11,3 +11,7 @@
 [vue create 命令](https://blog.csdn.net/qq_34086980/article/details/113755592)
 
 [nodejs API](http://nodejs.cn/api/)
+
+[webpack](https://webpack.docschina.org/api/node/)
+
+[DevServe](https://webpack.docschina.org/configuration/dev-server/)
