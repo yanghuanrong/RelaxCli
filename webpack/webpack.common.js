@@ -1,15 +1,15 @@
-const path = require("path");
+const path = require('path');
 
-const { srcDir, distDir, rootDir } = require("../scripts/paths");
+const { srcDir, distDir, rootDir } = require('../scripts/paths');
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: path.join(srcDir, "main.js"),
+    app: path.join(srcDir, 'main.js'),
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: '[name].bundle.js',
     path: distDir,
     clean: true,
   },
@@ -18,27 +18,29 @@ module.exports = {
     ignored: /node_modules/,
   },
   resolve: {
+    extensions: ['.js', '.json', '.vue'],
     alias: {
-      "@": srcDir,
+      '@': srcDir,
+      crypto: false,
     },
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        use: "vue-loader",
+        use: 'vue-loader',
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.less$/i,
         use: [
-          "style-loader",
-          "css-loader",
+          'style-loader',
+          'css-loader',
           {
-            loader: "less-loader",
+            loader: 'less-loader',
             options: {
               lint: true,
             },
@@ -47,18 +49,18 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(rootDir, "public", "index.html"),
-      inject: "body",
+      template: path.join(rootDir, 'public', 'index.html'),
+      inject: 'body',
     }),
   ],
 };

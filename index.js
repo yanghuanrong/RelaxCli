@@ -1,1 +1,3 @@
-console.log(1);
+const cli = require('./bin/index');
+
+moduels.exports = cli;
