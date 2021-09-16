@@ -21,12 +21,12 @@
   },
   "homepage": "https://github.com/yanghuanrong/BsetCli#readme",
   "dependencies": {
+    "@soda/friendly-errors-webpack-plugin": "^1.8.0",
     "chalk": "^4.1.2",
     "commander": "^8.1.0",
     "css-loader": "^6.2.0",
     "download-git-repo": "^3.0.2",
     "ejs": "^3.1.6",
-    "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.3.2",
     "inquirer": "^8.1.2",
@@ -37,6 +37,7 @@
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.52.0",
     "webpack-dev-middleware": "^5.0.0",
-    "webpack-dev-server": "^4.1.0"
+    "webpack-dev-server": "^4.1.0",
+    "webpack-merge": "^5.8.0"
   }
 }
