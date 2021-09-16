@@ -12,6 +12,7 @@ module.exports = function() {
   const webpackConfig = merge(common, {
     mode: "development",
     devtool: "inline-source-map",
+    stats: "errors-only",
     plugins: [
       new VueLoaderPlugin(),
       new Webpack.DefinePlugin({
@@ -30,7 +31,6 @@ module.exports = function() {
     devServer: {
       compress: true,
       port: port,
-      webSocketServer: "ws",
     },
   });
 

@@ -14,9 +14,6 @@ module.exports = {
     clean: true,
   },
   context: rootDir,
-  stats: {
-    warnings: false,
-  },
   watchOptions: {
     ignored: /node_modules/,
   },
