@@ -1,29 +1,37 @@
 #!/usr/bin/env node
 
-const { program } = require("commander");
-const chalk = require("chalk");
+const { program } = require('commander');
+const chalk = require('chalk');
 
 // 版本信息
-program.version(`${require("../package").version}`);
+program.version(`${require('../package').version}`);
 
 // 创建项目
 program
-  .command("create <name>")
-  .description("创建项目")
+  .command('create <name>')
+  .description('创建项目')
   .action((name) => {
-    require("../packages/cli-create/index")(name);
+    require('../packages/cli-create/index')(name);
   });
 
 // 运行项目
 program
-  .command("serve")
-  .description("运行项目")
+  .command('serve')
+  .description('运行项目')
   .action(() => {
-    require("../packages/cli-serve/index")();
+    require('../packages/cli-serve/index')();
+  });
+
+// 运行项目
+program
+  .command('build')
+  .description('运行项目')
+  .action(() => {
+    require('../packages/cli-build/index')();
   });
 
 // 输入错误给出提示
-program.on("command:*", ([cmd]) => {
+program.on('command:*', ([cmd]) => {
   program.outputHelp();
   console.log();
   console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`));
