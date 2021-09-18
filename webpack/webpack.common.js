@@ -3,6 +3,7 @@ const path = require('path');
 const { srcDir, distDir, rootDir } = require('../scripts/paths');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const pkg = require(path.resolve(rootDir, 'package.json'));
 
 module.exports = {
   entry: {
@@ -36,16 +37,7 @@ module.exports = {
       },
       {
         test: /\.less$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'less-loader',
-            options: {
-              lint: true,
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -60,6 +52,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(rootDir, 'public', 'index.html'),
+      title: pkg.name,
       inject: 'body',
     }),
   ],
