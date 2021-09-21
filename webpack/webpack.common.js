@@ -1,13 +1,20 @@
 const path = require('path');
 
-const { srcDir, distDir, rootDir } = require('../scripts/paths');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const pkg = require(path.resolve(rootDir, 'package.json'));
+const { merge } = require('webpack-merge');
 
-module.exports = {
+const {
+  distDir,
+  rootDir,
+  examplesDir,
+  publicDir,
+} = require('../scripts/paths');
+const pkg = require(path.resolve(rootDir, 'package.json'));
+const { title, ...config } = require(path.resolve(rootDir, 'ui.config.js'));
+
+module.exports = merge(config, {
   entry: {
-    app: path.join(srcDir, 'main.js'),
+    app: path.join(examplesDir, 'entry.js'),
   },
   output: {
     filename: '[name].bundle.js',
@@ -21,7 +28,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.vue'],
     alias: {
-      '@': srcDir,
       crypto: false,
     },
   },
@@ -51,9 +57,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(rootDir, 'public', 'index.html'),
-      title: pkg.name,
+      template: path.join(examplesDir, 'index.html'),
+      title: title || pkg.name,
       inject: 'body',
     }),
   ],
-};
+});

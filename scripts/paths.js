@@ -1,16 +1,14 @@
 const path = require('path');
 
-// 项目根目录路径
+// 项目文件路径
 const rootDir = path.join(process.cwd());
-
-// 项目源码路径
 const srcDir = path.join(rootDir, 'src');
-
-// 项目打包路径
 const distDir = path.join(rootDir, 'dist');
+const examplesDir = path.join(rootDir, 'examples');
 
 module.exports = {
   rootDir,
   srcDir,
   distDir,
+  examplesDir,
 };
