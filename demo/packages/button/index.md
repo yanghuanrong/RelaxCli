@@ -21,6 +21,10 @@ tag: General
   </div>
 </template>
 
+<script>
+  console.log(11)
+</script>
+
 <style>
   .a{
     color: #ccc
