@@ -53,6 +53,10 @@ module.exports = merge(config, {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.md$/i,
+        use: ['vue-loader', path.resolve(__dirname, '../scripts/md-loader.js')],
+      },
     ],
   },
   plugins: [
