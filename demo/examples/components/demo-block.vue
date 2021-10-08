@@ -72,12 +72,8 @@
 </template>
 
 <script type="text/babel">
-import './index.less';
-// import FileSaver from "file-saver";
-// import { data } from '../data/data.json';
-
 export default {
-  name: 'demoBlcok',
+  name: 'DemoBlock',
   data() {
     function randomColor() {
       const s = (Math.random() * 0xfffff * 1000000).toString(16);

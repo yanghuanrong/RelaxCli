@@ -7,7 +7,6 @@ const ctx = require.context('../packages', true, /\index.md$/);
 const components = ctx.keys().map((path) => {
   const [name] = path.match(/(?<=.\/)\w+/);
   const [file] = path.match(/(?<=.\/).*/);
-  console.log(file);
   return {
     path: `/components/${name}`,
     name,

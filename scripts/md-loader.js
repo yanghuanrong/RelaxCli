@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-var source = fs.readFileSync(path.resolve(__dirname, './index.md'), 'utf8');
-setTimeout(mdLoader, 0, source);
+// const fs = require('fs');
+// const path = require('path');
+// var source = fs.readFileSync(path.resolve(__dirname, './index.md'), 'utf8');
+// setTimeout(mdLoader, 0, source);
 
 const loaderUtils = require('loader-utils');
 const mdContainer = require('markdown-it-container');
@@ -88,11 +88,9 @@ function mdLoader(source) {
 
   const script = `
   <script>
-  import DemoBlock from '@/demoBlock/index.vue'
   ${demoRequest}
   export default {
     components: {
-      DemoBlock,
       ${docPart.map((demo, index) => `Demo${index + 1}`).join(',\n')}
     }
   }
