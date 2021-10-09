@@ -1,7 +1,10 @@
-// const fs = require('fs');
-// const path = require('path');
-// var source = fs.readFileSync(path.resolve(__dirname, './index.md'), 'utf8');
-// setTimeout(mdLoader, 0, source);
+const fs = require('fs');
+const path = require('path');
+var source = fs.readFileSync(
+  path.resolve(__dirname, '../demo/packages/button/index.md'),
+  'utf8'
+);
+setTimeout(mdLoader, 0, source);
 
 const loaderUtils = require('loader-utils');
 const mdContainer = require('markdown-it-container');
@@ -62,7 +65,10 @@ function mdLoader(source) {
   const loadObj = this.resourceQuery
     ? loaderUtils.parseQuery(this.resourceQuery)
     : {};
-  const html = md.render(matter(source).content);
+
+  const compileSource = matter(source);
+  const html = md.render(compileSource.content);
+
   if (loadObj.demo) {
     return docPart[loadObj.demo - 1];
   }

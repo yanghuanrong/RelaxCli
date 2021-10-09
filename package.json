@@ -28,6 +28,7 @@
     "download-git-repo": "^3.0.2",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",
+    "glob": "^7.2.0",
     "gray-matter": "^4.0.3",
     "html-webpack-plugin": "^5.3.2",
     "inquirer": "^8.1.2",
