@@ -4,7 +4,9 @@
       <dl v-for="(items, i) in nav" :key="i">
         <dt>{{ items.tag }}</dt>
         <dd v-for="(item, k) in items.child" :key="k">
-          {{ item.title }}
+          <router-link :to="item.routePath" replace>{{
+            item.title
+          }}</router-link>
         </dd>
       </dl>
     </div>

@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-var source = fs.readFileSync(
-  path.resolve(__dirname, '../demo/packages/button/index.md'),
-  'utf8'
-);
-setTimeout(mdLoader, 0, source);
+// const fs = require('fs');
+// const path = require('path');
+// var source = fs.readFileSync(
+//   path.resolve(__dirname, '../demo/packages/button/index.md'),
+//   'utf8'
+// );
+// setTimeout(mdLoader, 0, source);
 
 const loaderUtils = require('loader-utils');
 const mdContainer = require('markdown-it-container');

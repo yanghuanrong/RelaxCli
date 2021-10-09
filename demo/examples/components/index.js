@@ -13,7 +13,6 @@ function applyComponentsCode(file) {
 }
 
 function install(app) {
-  console.log(components);
   Object.keys(components).forEach((key) => {
     const component = components[key];
     app.component(component.name, component);

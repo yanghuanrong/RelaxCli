@@ -18,15 +18,5 @@
         "componentName": "button"
       }
     ]
-  },
-  {
-    "tag": "Default",
-    "child": [
-      {
-        "title": "Tag",
-        "routePath": "/components/tag",
-        "componentName": "tag"
-      }
-    ]
   }
 ]}

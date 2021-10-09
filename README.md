@@ -1,17 +1,39 @@
-# BsetCLI
+# RelaxCli
 
-脚手架，加速项目搭建，uniapp，vue
+脚手架，基于webpack5，专注组件库快速搭建
 
-## 资料参考
+### 理念
 
-[nodejs 交互工具库](https://segmentfault.com/a/1190000037688124)
+开发者只需关注组件本身的逻辑。编写维护组件代码、样式代码、示例文件。
 
-[vue-cli 命令行定义](https://blog.csdn.net/qq_34086980/article/details/113717890)
+### 配置
 
-[vue create 命令](https://blog.csdn.net/qq_34086980/article/details/113755592)
+`cli.config.js` 是项目的配置文件，目前提供了几个选项进行配置
 
-[nodejs API](http://nodejs.cn/api/)
+| 参数     | 类型   | 必填 | 说明   |
+| -------- | ------ | ---- | ------ |
+| title | string | 是   | 页面标题 |
+| prefix | string | 是   | 组件名称前缀   |
+| autoFile | boolean | 否 | 默认`true`, 自动生成文件 |
+| webpack | object | 是 | webpack配置，会被合并进入配置中 |
 
-[webpack](https://webpack.docschina.org/api/node/)
+### 命令
 
-[DevServe](https://webpack.docschina.org/configuration/dev-server/)
+- [ ]  `create <name>` 创建项目
+- [x] `serve` 启动开发
+- [x] `build` 打包文档
+- [ ] `lib` 打包组件
+- [x] `help` 帮助信息
+- [x] `-V` 版本信息
+
+### 便捷
+
+`RelaxCli`会对`packages`目录进行监听，在`packages`下面创建新目录，当文件夹名称符合组件名要求的时候会在文件夹下面自动创建对应的`vue`,`js`,`md`,`less`文件。并且会自动注册路由，加载入组件菜单，会将样式文件自动导入到公有组件样式中。
+
+## 自由
+
+千人千面。`examples`示例是一个标准且极其简单的vue项目，可以由开发者自主定制符合自己组件视觉的文档
+
+## 期望
+
+预期支持vue2、vue3，目前支持vue2。

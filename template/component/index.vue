@@ -1,9 +1,9 @@
 <template>
-  <div>Hi world</div>
+  <div class="<%= tagName %>">Hi <%= name %> component</div>
 </template>
 
 <script>
 export default {
-  name: "<%= name %>",
+  name: '<%= name %>',
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <div>Hi world</div>
+  <div class="">Hi Alert component</div>
 </template>
 
 <script>
 export default {
-  name: "Alert",
+  name: 'Alert',
 };
 </script>

@@ -14,7 +14,7 @@ tag: Default
 ```html
 <template>
   <div>
-    <Alert type="default"></Alert>
+    <x-alert type="default"></x-alert>
   </div>
 </template>
 ```

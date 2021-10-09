@@ -1,18 +1,18 @@
-const fs = require("fs");
-const path = require("path");
-const matter = require("gray-matter");
-const glob = require("glob");
-const { packagesDir, examplesDir } = require("../scripts/paths");
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
+const glob = require('glob');
+const { packagesDir, examplesDir } = require('../scripts/paths');
 
 const RegName = /(?<=.*\/packages\/).*?(?=\/index.md)/;
 
-function CompileData() {
+module.exports = function() {
   const fileJSON = [];
   const fileMap = {};
-  const files = glob.sync(path.join(packagesDir, "*/index.md"));
+  const files = glob.sync(path.join(packagesDir, '*/index.md'));
 
   files.forEach((filePath, i) => {
-    const fileContent = fs.readFileSync(filePath, "utf-8");
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
     const { tag, title } = matter(fileContent).data || {};
     const componentName = filePath.match(RegName)[0];
     const routePath = `/components/${componentName.toLocaleLowerCase()}`;
@@ -38,6 +38,4 @@ function CompileData() {
   const dataJSON = `{"data":${JSON.stringify(fileJSON, null, 2)}}`;
   const dataPath = path.resolve(examplesDir, `data/components.json`);
   fs.writeFileSync(dataPath, dataJSON);
-}
-
-module.exports = CompileData;
+};
