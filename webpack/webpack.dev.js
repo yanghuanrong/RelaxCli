@@ -1,38 +1,37 @@
-const common = require('./webpack.common.js');
-const { merge } = require('webpack-merge');
-const Webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const FriendlyErrorsWebpackPlugin = require('@soda/friendly-errors-webpack-plugin');
-const portfinder = require('portfinder');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const chalk = require('chalk');
-
+const common = require("./webpack.common.js");
+const { merge } = require("webpack-merge");
+const Webpack = require("webpack");
+const WebpackDevServer = require("webpack-dev-server");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const FriendlyErrorsWebpackPlugin = require("@soda/friendly-errors-webpack-plugin");
+const portfinder = require("portfinder");
+const ProgressBarPlugin = require("progress-bar-webpack-plugin");
+const chalk = require("chalk");
 module.exports = async function() {
   const port = await portfinder.getPortPromise({ port: 8000, stopPort: 9000 });
   const website = `http://localhost:${port}/`;
 
   const webpackConfig = merge(common, {
-    mode: 'development',
+    mode: "development",
     infrastructureLogging: {
-      level: 'none',
+      level: "none",
     },
-    devtool: 'inline-source-map',
-    stats: 'errors-only',
+    devtool: "inline-source-map",
+    stats: "errors-only",
     plugins: [
       new VueLoaderPlugin(),
       new Webpack.DefinePlugin({
         BASE_URL: JSON.stringify(website),
-        'process.env': JSON.stringify(process.env),
+        "process.env": JSON.stringify(process.env),
       }),
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
-          messages: ['You application is running here ' + website],
+          messages: ["You application is running here " + website],
         },
       }),
       //#会打印两条成功信息 https://github.com/webpack/webpack/discussions/12996
       new ProgressBarPlugin({
-        format: `  start [:bar] ${chalk.green.bold(':percent')} (:elapsed s)`,
+        format: `  start [:bar] ${chalk.green.bold(":percent")} (:elapsed s)`,
       }),
     ],
     devServer: {

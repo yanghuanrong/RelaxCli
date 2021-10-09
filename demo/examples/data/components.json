@@ -1,11 +1,31 @@
 {"data":[
   {
+    "tag": "Default",
+    "child": [
+      {
+        "title": "Alert",
+        "routePath": "/components/alert",
+        "componentName": "alert"
+      }
+    ]
+  },
+  {
     "tag": "General",
     "child": [
       {
         "title": "Button 按钮",
         "routePath": "/components/button",
         "componentName": "button"
+      }
+    ]
+  },
+  {
+    "tag": "Default",
+    "child": [
+      {
+        "title": "Tag",
+        "routePath": "/components/tag",
+        "componentName": "tag"
       }
     ]
   }
