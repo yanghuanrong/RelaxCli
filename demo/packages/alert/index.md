@@ -3,8 +3,9 @@ title: Alert
 tag: Default
 ---
 
-# 组件标题
-> 组件描述
+# Alert 组件
+
+> Alert 描述
 
 ## 演示
 

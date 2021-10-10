@@ -40,7 +40,8 @@ function deleteTemplate(path) {
 function applyLess(name) {
   const filePath = path.join(rootDir, `src/relax.less`);
   const data = fs.readFileSync(filePath);
-  const content = data.toString() + `@import '../packages/${name}/index.less';`;
+  const content =
+    data.toString() + `\n@import '../packages/${name}/index.less';`;
   fs.writeFileSync(filePath, content);
 }
 
@@ -68,12 +69,7 @@ function createFile(path, name, tagName) {
 
 // 判断文件夹是否为空
 function isEmptyDir(fPath) {
-  var pa = fs.readdirSync(fPath);
-  if (pa.length === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return fs.readdirSync(fPath).length === 0;
 }
 
 // 首字母转大写

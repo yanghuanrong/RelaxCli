@@ -1,11 +1,11 @@
 ---
-title: <%= name %>
+title: Modal
 tag: Default
 ---
 
-# <%= name %> 组件
+# Modal 组件
 
-> <%= name %> 描述
+> Modal 描述
 
 ## 演示
 
@@ -15,7 +15,7 @@ tag: Default
 ```html
 <template>
   <div>
-    <<%= tagName %> type="default"></<%= tagName %>>
+    <x-modal type="default"></x-modal>
   </div>
 </template>
 ```

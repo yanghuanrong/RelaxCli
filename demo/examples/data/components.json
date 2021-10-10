@@ -5,7 +5,14 @@
       {
         "title": "Alert",
         "routePath": "/components/alert",
-        "componentName": "alert"
+        "componentName": "alert",
+        "tagName": "x-alert"
+      },
+      {
+        "title": "Modal",
+        "routePath": "/components/modal",
+        "componentName": "modal",
+        "tagName": "x-modal"
       }
     ]
   },
@@ -15,7 +22,8 @@
       {
         "title": "Button 按钮",
         "routePath": "/components/button",
-        "componentName": "button"
+        "componentName": "button",
+        "tagName": "x-button"
       }
     ]
   }

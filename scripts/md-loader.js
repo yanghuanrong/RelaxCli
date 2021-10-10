@@ -83,12 +83,8 @@ function mdLoader(source) {
     .join('\n');
   const template = `
   <template>
-    <div class="blog">
-      <div class="container">
-      <div class="content blog-doc markdown-body">
+    <div class="docs">
         ${html}
-      </div> 
-      </div> 
     </div>
   </template>`;
 

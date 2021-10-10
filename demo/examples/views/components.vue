@@ -1,6 +1,7 @@
 <template>
   <div class="main-wrapper">
     <div class="main-wrapper__menu">
+      <router-link to="overview" replace>组件概览</router-link>
       <dl v-for="(items, i) in nav" :key="i">
         <dt>{{ items.tag }}</dt>
         <dd v-for="(item, k) in items.child" :key="k">
