@@ -22,8 +22,8 @@ function initTemplate(path) {
     const name = path.match(RegName)[0];
     createFile('index.vue', name);
     createFile('index.js', name);
-    createFile('index.md', name, `${prefix}-${name}`);
-    createFile('index.less', name, `${prefix}-${name}`);
+    createFile('index.md', name);
+    createFile('index.less', name);
     applyLess(name);
     compileData();
   }
@@ -56,8 +56,9 @@ function removeLess(name) {
 }
 
 // 创建组件模版
-function createFile(path, name, tagName) {
+function createFile(path, name) {
   const ext = path.match(/[a-z]+$/);
+  const tagName = `${prefix}-${name}`;
   const componentName = firstToUpper(name);
   const data = fs.readFileSync(`../template/component/${path}`);
   const html = ejs.render(data.toString(), { name: componentName, tagName });

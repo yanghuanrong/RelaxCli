@@ -1,6 +1,5 @@
-import pkg from "../package.json";
-// import config from "../ui.config";
-const ctx = require.context("../packages", true, /\index.js$/);
+import pkg from '../package.json';
+const ctx = require.context('../packages', true, /\index.js$/);
 
 const components = {};
 
@@ -17,11 +16,11 @@ function applyComponentsCode(file) {
 function install(app) {
   Object.keys(components).forEach((key) => {
     const component = components[key];
-    app.component("x" + component.name, component);
+    app.component('x' + component.name, component);
   });
 }
 
-if (typeof window !== "undefined" && window.Vue) {
+if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 

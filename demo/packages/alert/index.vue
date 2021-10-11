@@ -1,5 +1,5 @@
 <template>
-  <div class="">Hi Alert component</div>
+  <div class="x-alert">Hi Alert component</div>
 </template>
 
 <script>

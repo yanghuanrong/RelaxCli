@@ -1,4 +1,6 @@
-.docs {
+.relax-docs {
+  font-family: sans-serif;
+
   hr {
     margin: 20px 0;
     opacity: 0.2;
@@ -16,9 +18,10 @@
 
   h1 {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1.5;
     margin-bottom: 5px;
+    color: #0d1a26;
 
     & + blockquote {
       margin-bottom: 30px;
@@ -27,8 +30,9 @@
 
   h2 {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1.4;
+    color: #0d1a26;
 
     & + blockquote {
       margin-bottom: 10px;
@@ -37,7 +41,7 @@
 
   h3 {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: normal;
   }
 
   h4 {
@@ -48,11 +52,40 @@
     font-size: 12px;
   }
 
+  p {
+    color: #314659;
+  }
   & > pre {
-    background-color: var(--main-background-color);
     padding: 5px 10px;
     border-radius: 3px;
     margin-top: 10px;
     margin-bottom: 30px;
+  }
+
+  pre {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono,
+      monospace;
+  }
+
+  & > table {
+    width: 100%;
+    text-align: left;
+
+    th {
+      font-weight: normal;
+
+      td {
+        color: #0d1a26;
+      }
+    }
+    th,
+    td {
+      border-bottom: 1px dashed #eee;
+      padding: 10px 8px;
+      font-size: 14px;
+      color: #314659;
+    }
   }
 }

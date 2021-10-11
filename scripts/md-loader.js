@@ -83,7 +83,7 @@ function mdLoader(source) {
     .join('\n');
   const template = `
   <template>
-    <div class="docs">
+    <div class="relax-docs">
         ${html}
     </div>
   </template>`;
@@ -91,10 +91,17 @@ function mdLoader(source) {
   const script = `
   <script>
   ${demoRequest}
+  import hljs from 'highlight.js'
   export default {
     components: {
       ${docPart.map((demo, index) => `Demo${index + 1}`).join(',\n')}
-    }
+    },
+    mounted(){
+      this.$nextTick(()=>{
+        const blocks = document.querySelectorAll('pre code:not(.hljs)')
+        Array.prototype.forEach.call(blocks, hljs.highlightBlock)
+      })
+    },
   }
   </script>
   `;

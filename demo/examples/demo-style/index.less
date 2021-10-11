@@ -1,5 +1,5 @@
 @import url('./docs.less');
-
+@import url('./highlight.less');
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +47,7 @@ a {
         background-color: #fff;
         color: #1e87f0;
         border: 1px solid #fff;
-
+        transition: box-shadow 0.3s linear;
         &:hover {
           box-shadow: 0 5px 10px #1e87f0;
         }
@@ -93,13 +93,19 @@ a {
 
 .main-wrapper {
   display: flex;
+  height: calc(100vh - 66px);
+  overflow: auto;
 
   &__menu {
     border-right: 1px solid #eee;
     width: 300px;
-    min-height: calc(100vh - 66px);
+    height: inherit;
     padding: 30px;
     box-sizing: border-box;
+    overflow: auto;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
 
     a {
       font-size: 14px;
@@ -134,7 +140,28 @@ a {
 
   &__content {
     flex: 1;
-    padding: 30px;
+    padding: 30px 180px 30px 330px;
+  }
+
+  &__nav {
+    position: fixed;
+    border-left: 1px solid #eee;
+    right: 0px;
+    width: 150px;
+    margin-top: 30px;
+    font-size: 12px;
+
+    .item {
+      padding: 5px 20px;
+      border-left: 1px solid transparent;
+      cursor: pointer;
+      user-select: none;
+
+      &.active {
+        color: #1e87f0;
+        border-color: currentColor;
+      }
+    }
   }
 }
 
@@ -180,4 +207,37 @@ a {
 }
 
 .demo-block {
+  border: 1px dashed #eee;
+  border-radius: 6px;
+  padding: 15px;
+  transition: border-color 0.2s linear;
+  margin-bottom: 30px;
+
+  &:hover {
+    border-color: #1e87f0;
+  }
+
+  .tools {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
 }

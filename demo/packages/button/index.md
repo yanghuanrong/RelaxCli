@@ -15,15 +15,11 @@ tag: General
 ```html
 <template>
   <div>
-  <x-button type="default"> default </x-button>
-  <x-button class="a" type="default"> default </x-button>
-  <x-button style="color:#F00" type="default"> default </x-button>
+    <x-button type="default"> default </x-button>
+    <x-button class="a" type="default"> default </x-button>
+    <x-button style="color:#F00" type="default"> default </x-button>
   </div>
 </template>
-
-<script>
-  console.log(11)
-</script>
 
 <style>
   .a{
@@ -33,3 +29,9 @@ tag: General
 ```
 
 :::
+
+## Button Attributes
+
+| 参数    |  说明  | 类型   | 可选值 | 默认值   |
+| ------  | ------ | ---- | ------ | ----    |
+| size  |  尺寸 |  string  |  medium / small / mini  |  —
