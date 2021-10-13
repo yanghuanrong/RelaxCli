@@ -7,7 +7,7 @@ const {
   distDir,
   rootDir,
   examplesDir,
-  publicDir,
+  packagesDir,
 } = require('../scripts/paths');
 const pkg = require(path.resolve(rootDir, 'package.json'));
 const { title, webpack } = require(path.resolve(rootDir, 'cli.config.js'));
@@ -43,7 +43,18 @@ module.exports = merge(webpack, {
       },
       {
         test: /\.less$/i,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader',
+          {
+            loader: 'style-resources-loader',
+            options: {
+              patterns: path.resolve(rootDir, 'src/*.less'),
+              injector: 'append',
+            },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

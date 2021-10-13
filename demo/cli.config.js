@@ -1,12 +1,12 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  title: "Demo",
-  prefix: "x",
+  title: 'RelaxUI',
+  prefix: 'x',
   webpack: {
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "src"),
+        '@': path.resolve(__dirname, 'src'),
       },
     },
   },

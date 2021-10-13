@@ -43,6 +43,7 @@
     "portfinder": "^1.0.28",
     "progress-bar-webpack-plugin": "^2.1.0",
     "style-loader": "^3.2.1",
+    "style-resources-loader": "^1.4.1",
     "validate-npm-package-name": "^3.0.0",
     "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.14",
