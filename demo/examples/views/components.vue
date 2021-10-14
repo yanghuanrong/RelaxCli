@@ -46,11 +46,11 @@ export default {
   },
   mounted() {
     const el = document.querySelector('.main-wrapper');
-    el.addEventListener('scroll', this.scroll);
+    el && el.addEventListener('scroll', this.scroll);
   },
   destroyed() {
     const el = document.querySelector('.main-wrapper');
-    el.removeEventListener('scroll', this.scroll);
+    el && el.removeEventListener('scroll', this.scroll);
   },
   methods: {
     scrollView(i) {
