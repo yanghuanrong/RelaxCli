@@ -12,6 +12,8 @@ const {
 } = require('../scripts/paths');
 const pkg = require(path.resolve(rootDir, 'package.json'));
 const { title, webpack } = require(path.resolve(rootDir, 'cli.config.js'));
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(webpack, {
   entry: {
@@ -71,21 +73,24 @@ module.exports = merge(webpack, {
       },
     ],
   },
+  // 提取所有的 CSS 到一个文件中
   optimization: {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: 'styles',
+          name: 'main',
           type: 'css/mini-extract',
           chunks: 'all',
           enforce: true,
         },
       },
     },
+    minimize: true,
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '/css/[name].css',
     }),
     new HtmlWebpackPlugin({
       template: path.join(examplesDir, 'index.html'),
