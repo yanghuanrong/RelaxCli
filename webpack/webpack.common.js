@@ -2,25 +2,16 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const {
-  distDir,
-  rootDir,
-  examplesDir,
-  packagesDir,
-} = require('../scripts/paths');
+const { distDir, rootDir, examplesDir } = require('../scripts/paths');
 const pkg = require(path.resolve(rootDir, 'package.json'));
 const { title, webpack } = require(path.resolve(rootDir, 'cli.config.js'));
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(webpack, {
   entry: {
     app: path.join(examplesDir, 'entry.js'),
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: 'js/[name].bundle.js',
     path: distDir,
     clean: true,
   },
@@ -41,31 +32,18 @@ module.exports = merge(webpack, {
         use: 'vue-loader',
       },
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.less$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'less-loader',
-          {
-            loader: 'style-resources-loader',
-            options: {
-              patterns: path.resolve(rootDir, 'src/*.less'),
-              injector: 'append',
-            },
-          },
-        ],
-      },
-      {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'images/[hash][ext][query]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'font/[hash][ext][query]',
+        },
       },
       {
         test: /\.md$/i,
@@ -73,25 +51,7 @@ module.exports = merge(webpack, {
       },
     ],
   },
-  // 提取所有的 CSS 到一个文件中
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: 'main',
-          type: 'css/mini-extract',
-          chunks: 'all',
-          enforce: true,
-        },
-      },
-    },
-    minimize: true,
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
-  },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '/css/[name].css',
-    }),
     new HtmlWebpackPlugin({
       template: path.join(examplesDir, 'index.html'),
       title: title || pkg.name,

@@ -22,7 +22,7 @@
 - [ ]  `create <name>` 创建项目
 - [x] `serve` 启动开发
 - [x] `build` 打包文档
-- [ ] `lib` 打包组件
+- [ ] `build:ui` 打包组件
 - [x] `help` 帮助信息
 - [x] `-V` 版本信息
 

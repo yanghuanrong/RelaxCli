@@ -22,12 +22,20 @@ program
     require('../packages/cli-serve/index')();
   });
 
-// 运行项目
+// 打包文档
 program
   .command('build')
-  .description('运行项目')
+  .description('打包文档')
   .action(() => {
     require('../packages/cli-build/index')();
+  });
+
+// 打包组件
+program
+  .command('build:ui')
+  .description('打包组件')
+  .action(() => {
+    require('../packages/cli-build-ui/index')();
   });
 
 // 输入错误给出提示
